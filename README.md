@@ -1,10 +1,10 @@
-# Automated build of HA k3s Cluster with `kube-vip` and MetalLB
+# Automated build of HA `k3s` Cluster with `kube-vip`, `MetalLB`, `Cert-Manager`, `Traefik` and `Rancher`
 
 ![Fully Automated K3S etcd High Availability Install](https://img.youtube.com/vi/CbkEWcUZ7zM/0.jpg)
 
-This playbook will build an HA Kubernetes cluster with `k3s`, `kube-vip` and MetalLB via `ansible`.
+This playbook will build an HA Kubernetes cluster with `k3s`, `kube-vip`, `MetalLB`, `Cert-Manager`, `Traefik` and `Rancher` via `ansible`.
 
-This is based on the work from [this fork](https://github.com/212850a/k3s-ansible) which is based on the work from [k3s-io/k3s-ansible](https://github.com/k3s-io/k3s-ansible). It uses [kube-vip](https://kube-vip.chipzoller.dev/) to create a load balancer for control plane, and [metal-lb](https://metallb.universe.tf/installation/) for its service `LoadBalancer`.
+This is based on the work from [this fork](https://github.com/techno-tim/k3s-ansible) which is based on the work from [212850a/k3s-ansible](https://github.com/212850a/k3s-ansible) which is based on the work from [k3s-io/k3s-ansible](https://github.com/k3s-io/k3s-ansible). It uses [kube-vip](https://kube-vip.chipzoller.dev/) to create a load balancer for control plane, and [metal-lb](https://metallb.universe.tf/installation/) for its service `LoadBalancer`.
 
 If you want more context on how this works, see:
 
@@ -28,8 +28,8 @@ on processor architecture:
 
 ## ✅ System requirements
 
-- Deployment environment must have Ansible 2.4.0+.  If you need a quick primer on Ansible [you can check out my docs and setting up Ansible](https://docs.technotim.live/posts/ansible-automation/).
-- `server` and `agent` nodes should have passwordless SSH access, if not you can supply arguments to provide credentials `--ask-pass --ask-become-pass` to each command.
+- Deployment environment must have Ansible 2.4.0+.  If you need a quick primer on Ansible [you can check out TechnoTim's docs on setting up Ansible](https://docs.technotim.live/posts/ansible-automation/).
+- `server` and `agent` nodes should have passwordless SSH access.
 
 ## 🚀 Getting Started
 

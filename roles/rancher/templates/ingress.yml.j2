@@ -1,0 +1,19 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rancher-ingressroute
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: traefik-internal
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`{{ rancher_dns_name }}`)
+      kind: Rule
+      services:
+        - name: rancher
+          namespace: cattle-system
+          port: 80
+  tls:
+    secretName: internal-tls-{{ deployment_environment }}
